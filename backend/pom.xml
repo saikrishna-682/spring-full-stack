@@ -11,10 +11,10 @@
 	<groupId>com.blakhat</groupId>
 	<artifactId>jpa-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<organization>
-		<name>saikrishna682</name>
-		<url>https://saikrishna682.com</url>
-	</organization>
+<!--	<organization>-->
+<!--		<name>saikrishna682</name>-->
+<!--		<url>https://saikrishna682.com</url>-->
+<!--	</organization>-->
 
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -22,6 +22,8 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<docker.username>saikrishna682</docker.username>
+		<docker.image.name>jpa-api</docker.image.name>
+		<docker.image.tag/>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -184,7 +186,7 @@
 						</platforms>
 					</from>
 					<to>
-						<image>docker.io/${project.organization.name}/${project.artifactId}:${project.version}</image>
+						<image>docker.io/${docker.username}/${docker.image.name}:${docker.image.tag}</image>
 						<tags>
 							<tag>latest</tag>
 						</tags>
