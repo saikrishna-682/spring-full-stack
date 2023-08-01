@@ -2,7 +2,7 @@ name: Slack Integration
 
 on:
   push:
-    branches: '*''
+    branches: '*'
 
 jobs:
   send-notification:
