@@ -37,7 +37,11 @@ jobs:
           cache: 'maven'
       - name: Build and Run for unit and integration test using maven
         run: mvn -ntp -B verify
-
+      - name: Send Slack notification
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":" :alert: New Branch has been created and waiting for pull request :loading: successfully ! :happy:"}' $SLACK_WEBHOOK_URL
 
 
           
