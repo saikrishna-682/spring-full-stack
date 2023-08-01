@@ -29,12 +29,6 @@ jobs:
         working-directory: ./backend
 
     steps:
-      - name: Send Slack notification
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":" :alert: Pull request started :loading:"}' $SLACK_WEBHOOK_URL
-
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v3
         with:
