@@ -37,14 +37,7 @@ jobs:
           cache: 'maven'
       - name: Build and Run for unit and integration test using maven
         run: mvn -ntp -B verify
-      - name: Send GitHub Action trigger data to Slack workflow
-        run: >
-          run: curl -X POST -H 'Content-type: application/json' --data '{"text":"slack integration successfully!"}' 
-          ${{ secrets.GITHUB_WEBHOOK_URL }}
-        id: slack
-      - uses: slackapi/slack-github-action@v1.24.0
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
 
 
           
