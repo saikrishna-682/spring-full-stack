@@ -1,6 +1,8 @@
 name: Slack Integration
 
-on: [push]
+on:
+  push:
+    branches: '*''
 
 jobs:
   send-notification:
