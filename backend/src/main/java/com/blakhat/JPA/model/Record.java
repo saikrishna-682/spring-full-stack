@@ -38,6 +38,9 @@ public class Record {
     @Column(nullable = false)
     private Integer number;
 
+    @Column(nullable = false)
+    private String gender;
+
 //    public Record(String name, String mail, String place, int number) {
 //
 //    }
@@ -47,11 +50,11 @@ public class Record {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Record record = (Record) o;
-        return Objects.equals(id, record.id) && Objects.equals(name, record.name) && Objects.equals(mail, record.mail) && Objects.equals(place, record.place) && Objects.equals(number, record.number);
+        return Objects.equals(id, record.id) && Objects.equals(name, record.name) && Objects.equals(mail, record.mail) && Objects.equals(place, record.place) && Objects.equals(number, record.number) && Objects.equals(gender, record.gender);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, mail, place, number);
+        return Objects.hash(id, name, mail, place, number,gender);
     }
 }
