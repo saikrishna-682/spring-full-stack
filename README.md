@@ -184,10 +184,7 @@ chmod 700 <path-to-directory>
  After changing the permissions on both the SSH key files and the directory that contains them, try connecting to your SSH server again. The error message should no longer appear.
 
 
-PATH
 
-
-ssh -i your-private-key.pem ec2-user@instance-public-ip-address
 
 
 
@@ -226,10 +223,6 @@ git help [command] Displays help information for a specified Git command.
 
 
 
-
-
-DOCKER ACCESS TOKEN 
-dckr_pat_9OkouVaJyKpOE7MFAKb8P9K2BB4
 
 
 
