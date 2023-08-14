@@ -53,20 +53,21 @@ export default function CardWithImage({id,name,mail,place,number,gender}) {
             <Text color={'gray.500'}>{mail}</Text>
           </Stack>
 
-{/*           <Stack direction={'row'} justify={'center'} spacing={6}> */}
-{/*             <Stack spacing={0} align={'center'}> */}
-{/*               <Text fontWeight={600}>{place}</Text> */}
-{/*               <Text fontSize={'sm'} color={'gray.500'}> */}
-{/*                 Location */}
-{/*               </Text> */}
-{/*             </Stack> */}
-{/*             <Stack spacing={0} align={'center'}> */}
-{/*               <Text fontWeight={600}>{number}</Text> */}
-{/*               <Text fontSize={'sm'} color={'gray.500'}> */}
-{/*                 Age */}
-{/*               </Text> */}
-{/*             </Stack> */}
-{/*           </Stack> */}
+          <Stack direction={'row'} justify={'center'} spacing={6}>
+            <Stack spacing={0} align={'center'}>
+              <Text fontWeight={600}>{place}</Text>
+              <Text fontSize={'sm'} color={'gray.500'}>
+                Location
+              </Text>
+            </Stack>
+
+            <Stack spacing={0} align={'center'}>
+              <Text fontWeight={600}>{number}</Text>
+              <Text fontSize={'sm'} color={'gray.500'}>
+                Age
+              </Text>
+            </Stack>
+          </Stack>
 
 {/*           <Button */}
 {/*             w={'full'} */}
