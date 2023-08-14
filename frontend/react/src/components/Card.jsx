@@ -61,6 +61,7 @@ export default function CardWithImage({id,name,mail,place,number,gender}) {
               </Text>
             </Stack>
 
+
             <Stack spacing={0} align={'center'}>
               <Text fontWeight={600}>{number}</Text>
               <Text fontSize={'sm'} color={'gray.500'}>
