@@ -1,9 +1,11 @@
 server:
-  port: 8099
+  port: 8081
   error:
     include-message: always
 
-
+cors:
+  allowed-origins: "*"
+  allowed-methods: "*"
 
 spring:
   datasource:
