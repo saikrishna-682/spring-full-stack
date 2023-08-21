@@ -45,6 +45,7 @@ public class RecordIntegrationTest {
         record.setMail(fakerName.lastName() + fakerName.firstName()+"@mail.com");
         record.setPlace(fakerName.nameWithMiddle());
         record.setNumber(random.nextInt(1,100));
+        record.setGender("male");
 
 //        String name = fakerName.fullName();
 //        String mail = fakerName.lastName() + fakerName.firstName()+"@mail.com";
@@ -56,6 +57,7 @@ public class RecordIntegrationTest {
         String mail = record.getMail();
         String place = record.getPlace();
         int number = record.getNumber();
+        String gender = record.getGender();
 
 //        Record newRecord = new Record(
 //               fullName,Email, destination, num
@@ -63,7 +65,7 @@ public class RecordIntegrationTest {
 
 
         RecordRegistrationRequest request = new RecordRegistrationRequest(
-                name, mail, place, number
+                name, mail, place, number,gender
         );
 
         // todo : send a post request
@@ -90,7 +92,7 @@ public class RecordIntegrationTest {
 
 
         // todo : make sure the customer is present
-        Record expectedRecord = new Record(null,name, mail, place, number);
+        Record expectedRecord = new Record(null,name, mail, place, number,gender);
 
         assertThat(allRecords)
                 .usingRecursiveFieldByFieldElementComparatorIgnoringFields("id")
@@ -236,6 +238,7 @@ public class RecordIntegrationTest {
         record.setMail(fakerName.firstName() + fakerName.lastName() + "@ohaaaaa.yikes");
         record.setPlace(fakerName.nameWithMiddle());
         record.setNumber(random.nextInt(1, 100));
+        record.setGender("male");
 
         // Send a POST request to register the record
         webTestClient.post()
@@ -267,8 +270,9 @@ public class RecordIntegrationTest {
                 id,
                 "UpdatedName",
                 "new@extra.loofi",
-                "elonmusk",
-                999
+                "korean",
+                867,
+                "male"
         );
 
         // Send a PUT request to update the record

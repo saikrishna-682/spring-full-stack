@@ -25,6 +25,16 @@ services:
     depends_on:
       - db
     restart: unless-stopped
+  jpa-react:
+    container_name: jpa-react
+    image: saikrishna682/jpa-react
+    build:
+      context: frontend/react
+    ports:
+      - "3000:5173"
+    depends_on:
+      - jpa-api
+    restart: unless-stopped
 
   pgadmin:
     container_name: pgadmin

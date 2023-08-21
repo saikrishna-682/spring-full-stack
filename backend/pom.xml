@@ -23,7 +23,8 @@
 		<maven.compiler.target>17</maven.compiler.target>
 		<docker.username>saikrishna682</docker.username>
 		<docker.image.name>jpa-api</docker.image.name>
-		<docker.image.tag/>
+		<docker.image.tag>latest</docker.image.tag>
+		<jsonwebtoken.version>0.11.5</jsonwebtoken.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -113,6 +114,34 @@
 			<groupId>com.github.javafaker</groupId>
 			<artifactId>javafaker</artifactId>
 			<version>1.0.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>${jsonwebtoken.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>${jsonwebtoken.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>${jsonwebtoken.version}</version>
+			<scope>runtime</scope>
 		</dependency>
 
 	</dependencies>

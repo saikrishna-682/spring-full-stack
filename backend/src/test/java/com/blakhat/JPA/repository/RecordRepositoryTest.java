@@ -33,8 +33,8 @@ class RecordRepositoryTest extends AbstractContainerUnitTest {
     void setUp() {
         MockitoAnnotations.openMocks(this);
         underTest.deleteAll();
-        Record record1 = new Record(1L,"sai","sai@gmail.com","local",898989898);
-        Record record2 = new Record(2L,"Jane", "jane@example.com", "Place 2", 898989898);
+        Record record1 = new Record(1L,"sai","sai@gmail.com","local",898989898,"male");
+        Record record2 = new Record(2L,"Jane", "jane@example.com", "Place 2", 898989898,"female");
         underTest.save(record1);
         underTest.save(record2);
     }

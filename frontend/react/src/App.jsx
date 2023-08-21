@@ -7,22 +7,32 @@ import { Button,
 import SidebarWithHeader from './components/shared/SideBar.jsx';
 import { useEffect, useState } from 'react';
 import { getRecords } from './services/client.js';
-import  CardWithImage  from './components/Card.jsx'
+import  CardWithImage  from './components/Card.jsx';
+import CreateRecordDrawer from './components/CreateRecordDrawer.jsx';
+import {successNotification, errorNotification} from './services/notification.js';
 
 
-const FetchRecords = () =>{
+export const FetchRecords = () =>{
     const[records, setRecords] = useState([]);
     const[loading, setLoading] = useState(false);
+    const[err, setErr] = useState("");
 
-        useEffect(()=>{
-            setLoading(true);
+        const fetchRecords = () => {
+        setLoading(true);
             getRecords().then(res => {
                 setRecords(res.data);
             }).catch(err => {
+                setErr(err.response.data.message);
                 console.log(err);
+                errorNotification(
+                    err.code,
+                    err.response.data.message
+                )
             }).finally(()=>{
                 setLoading(false);
-            })
+            })}
+        useEffect(()=>{
+            fetchRecords();
         },[])
 
         if(loading){
@@ -39,24 +49,42 @@ const FetchRecords = () =>{
             )
         }
 
+
+        if(err){
+            return (
+                    <SidebarWithHeader>
+                        <CreateRecordDrawer
+                            fetchRecords={fetchRecords}
+                        />
+                        <Text mt={5}>oops there aren't any records...</Text>
+                    </SidebarWithHeader>
+                )
+        }
+
         if(records.length <= 0){
             return (
                 <SidebarWithHeader>
-                    <Text>No Record's Available...</Text>
+                    <CreateRecordDrawer
+                        fetchRecords={fetchRecords}
+                    />
+                    <Text mt={5}>No Record's Available...</Text>
                 </SidebarWithHeader>
             )
         }
     return(
         <SidebarWithHeader>
-            <Wrap justify={"center"} spacing={"30px"}>
-               {records.map((record, index) => (
-                    <WrapItem key={index}>
-                        <CardWithImage
-                            {...record}
-                        />
-                    </WrapItem>
-               ))}
-            </Wrap>
+            <CreateRecordDrawer
+                fetchRecords={fetchRecords}
+            />
+                <Wrap justify={"center"} spacing={"30px"}>
+                   {records.map((record, index) => (
+                        <WrapItem key={index}>
+                            <CardWithImage
+                                {...record}
+                            />
+                        </WrapItem>
+                   ))}
+                </Wrap>
         </SidebarWithHeader>
     )
 }
@@ -76,6 +104,7 @@ const App = () => {
 
 
 export default App
+
 
 
 
