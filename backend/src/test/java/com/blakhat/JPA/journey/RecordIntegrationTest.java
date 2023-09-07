@@ -46,6 +46,7 @@ public class RecordIntegrationTest {
         record.setPlace(fakerName.nameWithMiddle());
         record.setNumber(random.nextInt(1,100));
         record.setGender("male");
+        record.setPassword("password");
 
 //        String name = fakerName.fullName();
 //        String mail = fakerName.lastName() + fakerName.firstName()+"@mail.com";
@@ -58,6 +59,7 @@ public class RecordIntegrationTest {
         String place = record.getPlace();
         int number = record.getNumber();
         String gender = record.getGender();
+        String password = record.getPassword();
 
 //        Record newRecord = new Record(
 //               fullName,Email, destination, num
@@ -65,7 +67,7 @@ public class RecordIntegrationTest {
 
 
         RecordRegistrationRequest request = new RecordRegistrationRequest(
-                name, mail, place, number,gender
+                name, mail, place, number,gender,password
         );
 
         // todo : send a post request
@@ -92,7 +94,7 @@ public class RecordIntegrationTest {
 
 
         // todo : make sure the customer is present
-        Record expectedRecord = new Record(null,name, mail, place, number,gender);
+        Record expectedRecord = new Record(null,name, mail, place, number,gender,password);
 
         assertThat(allRecords)
                 .usingRecursiveFieldByFieldElementComparatorIgnoringFields("id")
@@ -272,7 +274,8 @@ public class RecordIntegrationTest {
                 "new@extra.loofi",
                 "korean",
                 867,
-                "male"
+                "male",
+                "password"
         );
 
         // Send a PUT request to update the record

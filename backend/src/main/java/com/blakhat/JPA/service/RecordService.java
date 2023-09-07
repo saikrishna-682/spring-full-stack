@@ -3,6 +3,7 @@ package com.blakhat.JPA.service;
 import com.blakhat.JPA.exception.ResourceNotFound;
 import com.blakhat.JPA.exception.ResourceNotModified;
 import com.blakhat.JPA.model.Record;
+import com.blakhat.JPA.model.RecordRegistrationRequest;
 import com.blakhat.JPA.repository.RecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,7 +40,7 @@ public class RecordService {
             throw new IllegalArgumentException("Email is required");
         }
         if(existMail(record.getMail())){
-            throw new IllegalArgumentException("EMail already exists");
+            throw new IllegalArgumentException("Email already exists");
         }
         return recordRepository.save(record);
     }
@@ -115,6 +116,7 @@ public class RecordService {
     }
 
 
+
     private boolean isExistingRecord( Record presrentRecord, Record oldRecord){
         return !presrentRecord.equals(oldRecord);
     }
@@ -131,4 +133,8 @@ public class RecordService {
     }
 
 
+//    public RecordRegistrationRequest insertRecord(RecordRegistrationRequest request) {
+//
+//        return recordRepository.save(request);
+//    }
 }

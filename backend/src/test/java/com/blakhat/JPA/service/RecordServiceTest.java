@@ -165,7 +165,7 @@ class RecordServiceTest {
                                            "krishna",
                                            "krishna@yahoo.com",
                                            "Marybelle Willms Ondricka",
-                                           59,"male");
+                                           59,"male","password");
         when(recordRepository.findById(existingRecordId)).thenReturn(Optional.of(existingRecord));
 
         // Create the request with the same data as the existing record
@@ -173,7 +173,7 @@ class RecordServiceTest {
                                           "krishna",
                                           "krishna@yahoo.com",
                                           "Marybelle Willms Ondricka",
-                                          59,"male");
+                                          59,"male","password");
 
         // Call the service method and expect a ResourceNotModified exception
         assertThrows(ResourceNotModified.class, () -> underTest.putRecord(existingRecordId, updateRequest));
